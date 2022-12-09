@@ -1,0 +1,50 @@
+// } Driver Code Ends
+
+
+/* Link list Node:
+
+struct Node
+{
+    int data;
+    struct Node* next;
+
+    Node(int x){
+        data = x;
+        next = NULL;
+    }
+};
+
+*/
+int cntNode(struct Node*head)
+{
+    int cnt=0;
+    while(head!=NULL)
+    {
+        head=head->next;
+        cnt++;
+    }
+    return cnt;
+}
+
+// Deletes middle of linked list and returns head of the modified list
+Node* deleteMid(Node* head)
+{
+    // Your Code Here
+    if(head==NULL)
+    {
+        return NULL;
+    }
+    if(head->next==NULL)
+    {
+        delete head;
+    }
+    struct Node*cpyhead=head;
+    int cnt=cntNode(head);
+    int mid =cnt/2 ;
+    while(mid-->1)
+    
+        head=head->next;
+    
+    head->next=head->next->next;
+    return cpyhead;
+}
